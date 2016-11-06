@@ -48,7 +48,7 @@ Check the [state][spec] of a `menu` [**HAST**][hast] [element][].
 The state is calculated from the lowest `menu` with a valid `type`
 property.  If no `menu` has a `type`, it defaults to `'toolbar'`.
 
-The algorithms stops looking for higher `menu`s if a `template` element,
+The algorithm stops looking for higher `menu`s if a `template` element,
 or non-element, is found.
 
 ###### Parameters
