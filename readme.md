@@ -15,70 +15,32 @@ globals module, [uncompressed and compressed][releases].
 
 ## Usage
 
-Dependencies:
-
 ```javascript
 var menuState = require('hast-util-menu-state');
-```
 
-If there’s no last element or that node is not a `menu`:
+// If there’s no last element or that node is not a `menu`:
+menuState([{type: 'element', tagName: 'a'}]); //=> null
 
-```javascript
-var result = menuState([{
-    'type': 'element',
-    'tagName': 'a'
-}]);
-```
+// If the last node is a `menu` without `type`:
+menuState([{type: 'element', tagName: 'menu'}]); //=> 'toolbar'
 
-You’ll get:
-
-```js
-null
-```
-
-If the last node is a `menu` without `type`:
-
-```javascript
-result = menuState([{
-    'type': 'element',
-    'tagName': 'menu'
-}]);
-```
-
-You’ll get:
-
-```json
-"toolbar"
-```
-
-If the last node is a `menu` with a `type`,
-
-or that node has a parent `menu` with a type:
-
-```javascript
-result = menuState([
-    {
-        'type': 'element',
-        'tagName': 'menu',
-        'properties': {
-            'type': 'context'
-        }
-    },
-    {
-        'type': 'element',
-        'tagName': 'li'
-    },
-    {
-        'type': 'element',
-        'tagName': 'menu'
-    }
-]);
-```
-
-You’ll get:
-
-```json
-"context"
+// If the last node is a `menu` with a `type`, or that node has
+// a parent `menu` with a type:
+menuState([
+  {
+    type: 'element',
+    tagName: 'menu',
+    properties: {type: 'context'}
+  },
+  {
+    type: 'element',
+    tagName: 'li'
+  },
+  {
+    type: 'element',
+    tagName: 'menu'
+  }
+]); //=> 'context'
 ```
 
 ## API
