@@ -10,9 +10,6 @@ Check the [state][spec] of a `menu` [**HAST**][hast] [element][].
 npm install hast-util-menu-state
 ```
 
-**hast-util-menu-state** is also available as an AMD, CommonJS, and
-globals module, [uncompressed and compressed][releases].
-
 ## Usage
 
 ```javascript
@@ -54,14 +51,16 @@ property.  If no `menu` has a `type`, it defaults to `'toolbar'`.
 The algorithms stops looking for higher `menu`s if a `template` element,
 or non-element, is found.
 
-**Parameters**:
+###### Parameters
 
-*   `nodes` ([`Array.<Node>`][node], optional) — Nodes to check,
-    where the last `node` is a `menu` element.  The first node
-    represents the highest ancestor of the last (deepest) node.
+*   `nodes` ([`Array.<Node>`][node], optional) — Nodes to check, where the
+    last `node` is a `menu` element.  The first node represents the highest
+    ancestor of the last (deepest) node.
 
-**Returns**: `string?`, either `'context'` or `'toolbar'`; the state
-the `menu` is in, or `null`, if the last node is not a `menu` element.
+###### Returns
+
+`string?` — either `'context'` or `'toolbar'`; the state the `menu` is in,
+or `null`, if the last node is not a `menu` element.
 
 ## License
 
@@ -78,8 +77,6 @@ the `menu` is in, or `null`, if the last node is not a `menu` element.
 [coverage-page]: https://codecov.io/github/wooorm/hast-util-menu-state?branch=master
 
 [npm]: https://docs.npmjs.com/cli/install
-
-[releases]: https://github.com/wooorm/hast-util-menu-state/releases
 
 [license]: LICENSE
 
