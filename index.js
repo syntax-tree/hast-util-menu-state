@@ -1,5 +1,8 @@
 'use strict';
 
+/* Dependencies. */
+var is = require('hast-util-is-element');
+
 /* Expose. */
 module.exports = menuState;
 
@@ -8,7 +11,6 @@ function menuState(nodes) {
   var index;
   var node;
   var type;
-  var name;
 
   if (!nodes || typeof nodes !== 'object' || nodes.length === 0) {
     return null;
@@ -17,19 +19,17 @@ function menuState(nodes) {
   index = nodes.length - 1;
   node = nodes[index];
 
-  if (tagName(node) !== 'menu') {
+  if (!is(node, 'menu')) {
     return null;
   }
 
   while (node) {
-    name = tagName(node);
-
     /* Stop at `template` elements and non-elements. */
-    if (!name || name === 'template') {
+    if (!is(node) || is(node, 'template')) {
       break;
     }
 
-    if (name === 'menu') {
+    if (is(node, 'menu')) {
       type = node.properties && node.properties.type;
 
       if (type === 'context' || type === 'toolbar') {
@@ -41,13 +41,4 @@ function menuState(nodes) {
   }
 
   return 'toolbar';
-}
-
-/* Get the `tagName` of an element. */
-function tagName(value) {
-  if (value && typeof value === 'object' && value.type === 'element') {
-    return value.tagName;
-  }
-
-  return null;
 }
