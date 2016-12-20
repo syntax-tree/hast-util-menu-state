@@ -12,8 +12,8 @@
     "context",
     "toolbar"
   ],
-  "repository": "https://github.com/wooorm/hast-util-menu-state",
-  "bugs": "https://github.com/wooorm/hast-util-menu-state/issues",
+  "repository": "https://github.com/syntax-tree/hast-util-menu-state",
+  "bugs": "https://github.com/syntax-tree/hast-util-menu-state/issues",
   "author": "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)",
   "contributors": [
     "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)"
