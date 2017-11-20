@@ -1,10 +1,8 @@
 'use strict';
 
-/* Module dependencies. */
 var test = require('tape');
 var menuState = require('./');
 
-/* Tests. */
 test('menuState', function (t) {
   t.equal(menuState(), null, 'should return `null` without nodes');
   t.equal(menuState(null), null, 'should return `null` with `null`');

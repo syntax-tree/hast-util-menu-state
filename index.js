@@ -1,9 +1,7 @@
 'use strict';
 
-/* Dependencies. */
 var is = require('hast-util-is-element');
 
-/* Expose. */
 module.exports = menuState;
 
 /* Check the state of the menu `node`. */
