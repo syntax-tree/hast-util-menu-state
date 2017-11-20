@@ -62,6 +62,14 @@ or non-element, is found.
 `string?` — either `'context'` or `'toolbar'`; the state the `menu` is in,
 or `null`, if the last node is not a `menu` element.
 
+## Contribute
+
+See [`contribute.md` in `syntax-tree/hast`][contribute] for ways to get
+started.
+
+This organisation has a [Code of Conduct][coc].  By interacting with this
+repository, organisation, or community you agree to abide by its terms.
+
 ## License
 
 [MIT][license] © [Titus Wormer][author]
@@ -89,3 +97,7 @@ or `null`, if the last node is not a `menu` element.
 [element]: https://github.com/syntax-tree/hast#element
 
 [spec]: https://html.spec.whatwg.org/#attr-menu-type
+
+[contribute]: https://github.com/syntax-tree/hast/blob/master/contributing.md
+
+[coc]: https://github.com/syntax-tree/hast/blob/master/code-of-conduct.md
