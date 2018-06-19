@@ -5,3 +5,4 @@ coverage/
 node_modules/
 hast-util-menu-state.js
 hast-util-menu-state.min.js
+yarn.lock
