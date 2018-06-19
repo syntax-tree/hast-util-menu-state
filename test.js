@@ -1,7 +1,7 @@
 'use strict';
 
 var test = require('tape');
-var menuState = require('./');
+var menuState = require('.');
 
 test('menuState', function (t) {
   t.equal(menuState(), null, 'should return `null` without nodes');
@@ -84,17 +84,17 @@ test('menuState', function (t) {
   );
 
   t.equal(
-      menuState([
-        {
-          type: 'element',
-          tagName: 'menu',
-          properties: {type: 'context'}
-        },
-        null,
-        {type: 'element', tagName: 'menu'}
-      ]),
-      'toolbar',
-      'should not walk higher than non-elements'
+    menuState([
+      {
+        type: 'element',
+        tagName: 'menu',
+        properties: {type: 'context'}
+      },
+      null,
+      {type: 'element', tagName: 'menu'}
+    ]),
+    'toolbar',
+    'should not walk higher than non-elements'
   );
 
   t.equal(
