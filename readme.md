@@ -13,31 +13,21 @@ npm install hast-util-menu-state
 ## Usage
 
 ```javascript
-var menuState = require('hast-util-menu-state');
+var menuState = require('hast-util-menu-state')
 
 // If there’s no last element or that node is not a `menu`:
-menuState([{type: 'element', tagName: 'a'}]); //=> null
+menuState([{type: 'element', tagName: 'a'}]) // => null
 
 // If the last node is a `menu` without `type`:
-menuState([{type: 'element', tagName: 'menu'}]); //=> 'toolbar'
+menuState([{type: 'element', tagName: 'menu'}]) // => 'toolbar'
 
 // If the last node is a `menu` with a `type`, or that node has
 // a parent `menu` with a type:
 menuState([
-  {
-    type: 'element',
-    tagName: 'menu',
-    properties: {type: 'context'}
-  },
-  {
-    type: 'element',
-    tagName: 'li'
-  },
-  {
-    type: 'element',
-    tagName: 'menu'
-  }
-]); //=> 'context'
+  {type: 'element', tagName: 'menu', properties: {type: 'context'}},
+  {type: 'element', tagName: 'li'},
+  {type: 'element', tagName: 'menu'}
+]) // => 'context'
 ```
 
 ## API
