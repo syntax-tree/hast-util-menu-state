@@ -1,6 +1,6 @@
 {
   "name": "hast-util-menu-state",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Check the state of a menu element",
   "license": "MIT",
   "keywords": [
