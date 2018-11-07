@@ -1,4 +1,4 @@
-# hast-util-menu-state [![Build Status][build-badge]][build-page] [![Coverage Status][coverage-badge]][coverage-page]
+# hast-util-menu-state [![Build][build-badge]][build] [![Coverage][coverage-badge]][coverage] [![Downloads][downloads-badge]][downloads] [![Chat][chat-badge]][chat]
 
 Check the [state][spec] of a `menu` [**HAST**][hast] [element][].
 
@@ -68,11 +68,19 @@ repository, organisation, or community you agree to abide by its terms.
 
 [build-badge]: https://img.shields.io/travis/syntax-tree/hast-util-menu-state.svg
 
-[build-page]: https://travis-ci.org/syntax-tree/hast-util-menu-state
+[build]: https://travis-ci.org/syntax-tree/hast-util-menu-state
 
 [coverage-badge]: https://img.shields.io/codecov/c/github/syntax-tree/hast-util-menu-state.svg
 
-[coverage-page]: https://codecov.io/github/syntax-tree/hast-util-menu-state?branch=master
+[coverage]: https://codecov.io/github/syntax-tree/hast-util-menu-state
+
+[downloads-badge]: https://img.shields.io/npm/dm/hast-util-menu-state.svg
+
+[downloads]: https://www.npmjs.com/package/hast-util-menu-state
+
+[chat-badge]: https://img.shields.io/badge/join%20the%20community-on%20spectrum-7b16ff.svg
+
+[chat]: https://spectrum.chat/unified/rehype
 
 [npm]: https://docs.npmjs.com/cli/install
 
