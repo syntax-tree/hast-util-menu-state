@@ -1,7 +1,7 @@
 language: node_js
 node_js:
-- lts/boron
-- node
+  - lts/dubnium
+  - node
 after_script: bash <(curl -s https://codecov.io/bash)
 deploy:
   provider: releases
@@ -9,7 +9,7 @@ deploy:
   api_key:
     secure: Dr5WOlRiq7aIJliZHnfzECUGrSuIiFuecizeJqhuuKzbvzI+XGtCJ3m9rE7uDzx2y7/Jg4S3RLYnmHMwqdVuualR6XVQo8b1gpfnB9l6C0L3/Y8XxrtWxzyzA/ockCrPp/Dwstp4WekvR/CuK44BE7vd6/MO8hBEwixLIu6dNsdXmQvgvpnkeBLj48+icxSitlW+74by+rjAjyA6ZncyPHFPBGSF95Qj3MdtnAjaSwEzKL7I3IPFRNM6IWHu2Y3k0mjo+d6OsL5K+2IBDB/tMkDE9lJdlgAihH5ZQO7/HJkAWFmOIz5asISzocQ1XtcaHzJTcua31GeO95F4M0jMKkqZy0wMO0vaNMXSA09lPUmNFzhXK7RM7C9l6dypzWF4Wvtx36//reV8gONjvD9nWO9C/9Rp7eqY3rxX2bOSW4R7sf9Hy6m2pzn3bVPr7Fy8/xNTjgCXnQ25ZOyEs7t84V0GsOVRq9t0EW3zwKxhsizmPEZr3BxEeKFENqpwkNYAHOpycaBhn+eXMSR+nSZxDeQdSQL14WBQ4GhO3tl5Makxsa+MYO0TCp3kt4De4yuqZASsBAbI78bukViuu4wpVcAq2YEy6dHiWyywZ9xepiEHWX6+JRUM/aPCx0IAHcCLBd+UktjHv9T50k6Bnlo6FQpdamv27Zg4vYTSOT6GwvI=
   file:
-    - "hast-util-menu-state.js"
-    - "hast-util-menu-state.min.js"
+    - 'hast-util-menu-state.js'
+    - 'hast-util-menu-state.min.js'
   on:
     tags: true
