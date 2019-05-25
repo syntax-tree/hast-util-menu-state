@@ -35,7 +35,7 @@
     "xo": "^0.23.0"
   },
   "scripts": {
-    "format": "remark . -qfo && prettier --write '**/*.js' && xo --fix",
+    "format": "remark . -qfo && prettier --write \"**/*.js\" && xo --fix",
     "build-bundle": "browserify index.js --bare -s hastUtilMenuState > hast-util-menu-state.js",
     "build-mangle": "esmangle hast-util-menu-state.js > hast-util-menu-state.min.js",
     "build": "npm run build-bundle && npm run build-mangle",
