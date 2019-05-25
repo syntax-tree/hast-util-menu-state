@@ -1,18 +1,26 @@
-# hast-util-menu-state [![Build][build-badge]][build] [![Coverage][coverage-badge]][coverage] [![Downloads][downloads-badge]][downloads] [![Chat][chat-badge]][chat]
+# hast-util-menu-state
 
-Check the [state][spec] of a `menu` [**HAST**][hast] [element][].
+[![Build][build-badge]][build]
+[![Coverage][coverage-badge]][coverage]
+[![Downloads][downloads-badge]][downloads]
+[![Size][size-badge]][size]
+[![Sponsors][sponsors-badge]][collective]
+[![Backers][backers-badge]][collective]
+[![Chat][chat-badge]][chat]
 
-## Installation
+[**hast**][hast] utility to get the [*state*][spec] of a `<menu>` [element][].
+
+## Install
 
 [npm][]:
 
-```bash
+```sh
 npm install hast-util-menu-state
 ```
 
 ## Usage
 
-```javascript
+```js
 var menuState = require('hast-util-menu-state')
 
 // If there’s no last element or that node is not a `menu`:
@@ -34,31 +42,34 @@ menuState([
 
 ### `menuState(nodes)`
 
-Check the [state][spec] of a `menu` [**HAST**][hast] [element][].
-The state is calculated from the lowest `menu` with a valid `type`
-property.  If no `menu` has a `type`, it defaults to `'toolbar'`.
+Get the [*state*][spec] of a `<menu>` [element][].
+The state is calculated from the lowest `<menu>` with a valid `type` property.
+If no `<menu>` has a `type`, it defaults to `'toolbar'`.
 
-The algorithm stops looking for higher `menu`s if a `template` element,
+The algorithm stops looking for higher `<menu>`s if a `template` element,
 or non-element, is found.
 
 ###### Parameters
 
 *   `nodes` ([`Array.<Node>`][node], optional) — Nodes to check, where the
-    last `node` is a `menu` element.  The first node represents the highest
-    ancestor of the last (deepest) node.
+    last `node` is a `<menu>` element.
+    The first node is its [*root*][root].
+    All nodes are therefore [*inclusive ancestors*][ancestor].
 
 ###### Returns
 
-`string?` — either `'context'` or `'toolbar'`; the state the `menu` is in,
-or `null`, if the last node is not a `menu` element.
+`string?` — either `'context'` or `'toolbar'` (the state the `menu` is in), or
+`null`, if the last node is not a `menu` element.
 
 ## Contribute
 
-See [`contributing.md` in `syntax-tree/hast`][contributing] for ways to get
+See [`contributing.md` in `syntax-tree/.github`][contributing] for ways to get
 started.
+See [`support.md`][support] for ways to get help.
 
-This organisation has a [Code of Conduct][coc].  By interacting with this
-repository, organisation, or community you agree to abide by its terms.
+This project has a [Code of Conduct][coc].
+By interacting with this repository, organisation, or community you agree to
+abide by its terms.
 
 ## License
 
@@ -78,9 +89,19 @@ repository, organisation, or community you agree to abide by its terms.
 
 [downloads]: https://www.npmjs.com/package/hast-util-menu-state
 
+[size-badge]: https://img.shields.io/bundlephobia/minzip/hast-util-menu-state.svg
+
+[size]: https://bundlephobia.com/result?p=hast-util-menu-state
+
+[sponsors-badge]: https://opencollective.com/unified/sponsors/badge.svg
+
+[backers-badge]: https://opencollective.com/unified/backers/badge.svg
+
+[collective]: https://opencollective.com/unified
+
 [chat-badge]: https://img.shields.io/badge/join%20the%20community-on%20spectrum-7b16ff.svg
 
-[chat]: https://spectrum.chat/unified/rehype
+[chat]: https://spectrum.chat/unified/syntax-tree
 
 [npm]: https://docs.npmjs.com/cli/install
 
@@ -88,14 +109,20 @@ repository, organisation, or community you agree to abide by its terms.
 
 [author]: https://wooorm.com
 
-[hast]: https://github.com/syntax-tree/hast
+[contributing]: https://github.com/syntax-tree/.github/blob/master/contributing.md
 
-[node]: https://github.com/syntax-tree/unist#node
+[support]: https://github.com/syntax-tree/.github/blob/master/support.md
 
-[element]: https://github.com/syntax-tree/hast#element
+[coc]: https://github.com/syntax-tree/.github/blob/master/code-of-conduct.md
 
 [spec]: https://html.spec.whatwg.org/#attr-menu-type
 
-[contributing]: https://github.com/syntax-tree/hast/blob/master/contributing.md
+[node]: https://github.com/syntax-tree/unist#node
 
-[coc]: https://github.com/syntax-tree/hast/blob/master/code-of-conduct.md
+[root]: https://github.com/syntax-tree/unist#root
+
+[ancestor]: https://github.com/syntax-tree/unist#ancestor
+
+[hast]: https://github.com/syntax-tree/hast
+
+[element]: https://github.com/syntax-tree/hast#element
