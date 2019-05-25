@@ -25,19 +25,19 @@
     "hast-util-is-element": "^1.0.0"
   },
   "devDependencies": {
-    "browserify": "^16.0.0",
     "esmangle": "^1.0.0",
     "nyc": "^14.0.0",
     "prettier": "^1.0.0",
     "remark-cli": "^6.0.0",
     "remark-preset-wooorm": "^5.0.0",
     "tape": "^4.4.0",
+    "tinyify": "^2.0.0",
     "xo": "^0.24.0"
   },
   "scripts": {
     "format": "remark . -qfo && prettier --write \"**/*.js\" && xo --fix",
-    "build-bundle": "browserify index.js --bare -s hastUtilMenuState > hast-util-menu-state.js",
-    "build-mangle": "esmangle hast-util-menu-state.js > hast-util-menu-state.min.js",
+    "build-bundle": "browserify . -s hastUtilMenuState -o hast-util-menu-state.js",
+    "build-mangle": "browserify . -s hastUtilMenuState -p tinyify -o hast-util-menu-state.min.js",
     "build": "npm run build-bundle && npm run build-mangle",
     "test-api": "node test",
     "test-coverage": "nyc --reporter lcov tape test.js",
