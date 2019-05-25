@@ -4,7 +4,6 @@ var is = require('hast-util-is-element')
 
 module.exports = menuState
 
-/* Check the state of the menu `node`. */
 function menuState(nodes) {
   var index
   var node
@@ -22,7 +21,7 @@ function menuState(nodes) {
   }
 
   while (node) {
-    /* Stop at `template` elements and non-elements. */
+    // Stop at `template` elements and non-elements.
     if (!is(node) || is(node, 'template')) {
       break
     }
