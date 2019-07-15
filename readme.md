@@ -61,6 +61,11 @@ or non-element, is found.
 `string?` — either `'context'` or `'toolbar'` (the state the `menu` is in), or
 `null`, if the last node is not a `menu` element.
 
+## Security
+
+`hast-util-menu-state` does not change the syntax tree so there are no openings
+for [cross-site scripting (XSS)][xss] attacks.
+
 ## Contribute
 
 See [`contributing.md` in `syntax-tree/.github`][contributing] for ways to get
@@ -126,3 +131,5 @@ abide by its terms.
 [hast]: https://github.com/syntax-tree/hast
 
 [element]: https://github.com/syntax-tree/hast#element
+
+[xss]: https://en.wikipedia.org/wiki/Cross-site_scripting
