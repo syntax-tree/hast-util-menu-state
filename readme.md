@@ -66,6 +66,11 @@ or non-element, is found.
 `hast-util-menu-state` does not change the syntax tree so there are no openings
 for [cross-site scripting (XSS)][xss] attacks.
 
+## Related
+
+*   [`unist-util-visit-parents`](https://github.com/syntax-tree/unist-util-visit-parents)
+    — recursively walk over unist nodes, with ancestral information
+
 ## Contribute
 
 See [`contributing.md` in `syntax-tree/.github`][contributing] for ways to get
