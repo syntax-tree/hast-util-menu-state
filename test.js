@@ -3,7 +3,7 @@
 var test = require('tape')
 var menuState = require('.')
 
-test('menuState', function(t) {
+test('menuState', function (t) {
   t.equal(menuState(), null, 'should return `null` without nodes')
   t.equal(menuState(null), null, 'should return `null` with `null`')
   t.equal(menuState([]), null, 'should return `null` with empty `nodes`')
