@@ -1,5 +1,5 @@
 coverage/
-hast-util-menu-state.js
-hast-util-menu-state.min.js
 *.json
 *.md
+hast-util-menu-state.js
+hast-util-menu-state.min.js
