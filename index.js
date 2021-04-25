@@ -1,8 +1,21 @@
+/**
+ * @typedef {import('unist').Node} Node
+ *
+ * @typedef {'context'|'toolbar'} MenuState
+ */
+
 import {isElement} from 'hast-util-is-element'
 
+/**
+ * @param {Array.<Node>} nodes
+ * @returns {MenuState|null}
+ */
 export function menuState(nodes) {
+  /** @type {number} */
   var index
+  /** @type {Node} */
   var node
+  /** @type {unknown} */
   var type
 
   if (!nodes || typeof nodes !== 'object' || nodes.length === 0) {

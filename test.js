@@ -2,10 +2,12 @@ import test from 'tape'
 import {menuState} from './index.js'
 
 test('menuState', function (t) {
+  // @ts-ignore runtime.
   t.equal(menuState(), null, 'should return `null` without nodes')
   t.equal(menuState(null), null, 'should return `null` with `null`')
   t.equal(menuState([]), null, 'should return `null` with empty `nodes`')
   t.equal(
+    // @ts-ignore runtime.
     menuState(['foo']),
     null,
     'should return `null` without `node` as last `node`'
