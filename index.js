@@ -1,10 +1,6 @@
-'use strict'
+import {isElement} from 'hast-util-is-element'
 
-var is = require('hast-util-is-element')
-
-module.exports = menuState
-
-function menuState(nodes) {
+export function menuState(nodes) {
   var index
   var node
   var type
@@ -16,17 +12,17 @@ function menuState(nodes) {
   index = nodes.length - 1
   node = nodes[index]
 
-  if (!is(node, 'menu')) {
+  if (!isElement(node, 'menu')) {
     return null
   }
 
   while (node) {
     // Stop at `template` elements and non-elements.
-    if (!is(node) || is(node, 'template')) {
+    if (!isElement(node) || isElement(node, 'template')) {
       break
     }
 
-    if (is(node, 'menu')) {
+    if (isElement(node, 'menu')) {
       type = node.properties && node.properties.type
 
       if (type === 'context' || type === 'toolbar') {

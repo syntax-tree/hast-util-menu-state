@@ -12,6 +12,9 @@
 
 ## Install
 
+This package is [ESM only](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c):
+Node 12+ is needed to use it and it must be `import`ed instead of `require`d.
+
 [npm][]:
 
 ```sh
@@ -21,7 +24,7 @@ npm install hast-util-menu-state
 ## Use
 
 ```js
-var menuState = require('hast-util-menu-state')
+import {menuState} from 'hast-util-menu-state'
 
 // If there’s no last element or that node is not a `menu`:
 menuState([{type: 'element', tagName: 'a'}]) // => null
@@ -39,6 +42,9 @@ menuState([
 ```
 
 ## API
+
+This package exports the following identifiers: `menuState`.
+There is no default export.
 
 ### `menuState(nodes)`
 

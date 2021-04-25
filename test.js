@@ -1,7 +1,5 @@
-'use strict'
-
-var test = require('tape')
-var menuState = require('.')
+import test from 'tape'
+import {menuState} from './index.js'
 
 test('menuState', function (t) {
   t.equal(menuState(), null, 'should return `null` without nodes')
