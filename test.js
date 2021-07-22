@@ -20,13 +20,13 @@ test('menuState', function (t) {
   )
 
   t.equal(
-    menuState([{type: 'element', tagName: 'div'}]),
+    menuState([{type: 'element', tagName: 'div', children: []}]),
     null,
     'should return `null` without `menu` as last `node`'
   )
 
   t.equal(
-    menuState([{type: 'element', tagName: 'menu'}]),
+    menuState([{type: 'element', tagName: 'menu', children: []}]),
     'toolbar',
     'should return `toolbar` without `type` on last `menu`'
   )
@@ -36,7 +36,8 @@ test('menuState', function (t) {
       {
         type: 'element',
         tagName: 'menu',
-        properties: {type: 'toolbar'}
+        properties: {type: 'toolbar'},
+        children: []
       }
     ]),
     'toolbar',
@@ -48,7 +49,8 @@ test('menuState', function (t) {
       {
         type: 'element',
         tagName: 'menu',
-        properties: {type: 'context'}
+        properties: {type: 'context'},
+        children: []
       }
     ]),
     'context',
@@ -60,9 +62,10 @@ test('menuState', function (t) {
       {
         type: 'element',
         tagName: 'menu',
-        properties: {type: 'context'}
+        properties: {type: 'context'},
+        children: []
       },
-      {type: 'element', tagName: 'menu'}
+      {type: 'element', tagName: 'menu', children: []}
     ]),
     'context',
     'should return the `type` of a parent `menu`, if available'
@@ -70,8 +73,8 @@ test('menuState', function (t) {
 
   t.equal(
     menuState([
-      {type: 'element', tagName: 'menu'},
-      {type: 'element', tagName: 'menu'}
+      {type: 'element', tagName: 'menu', children: []},
+      {type: 'element', tagName: 'menu', children: []}
     ]),
     'toolbar',
     'should return the `toolbar` of no parent `menu` is available'
@@ -82,10 +85,11 @@ test('menuState', function (t) {
       {
         type: 'element',
         tagName: 'menu',
-        properties: {type: 'context'}
+        properties: {type: 'context'},
+        children: []
       },
-      {type: 'element', tagName: 'template'},
-      {type: 'element', tagName: 'menu'}
+      {type: 'element', tagName: 'template', children: []},
+      {type: 'element', tagName: 'menu', children: []}
     ]),
     'toolbar',
     'should not walk higher than `template` elements'
@@ -96,10 +100,11 @@ test('menuState', function (t) {
       {
         type: 'element',
         tagName: 'menu',
-        properties: {type: 'context'}
+        properties: {type: 'context'},
+        children: []
       },
       null,
-      {type: 'element', tagName: 'menu'}
+      {type: 'element', tagName: 'menu', children: []}
     ]),
     'toolbar',
     'should not walk higher than non-elements'
@@ -110,10 +115,11 @@ test('menuState', function (t) {
       {
         type: 'element',
         tagName: 'menu',
-        properties: {type: 'context'}
+        properties: {type: 'context'},
+        children: []
       },
-      {type: 'element', tagName: 'li'},
-      {type: 'element', tagName: 'menu'}
+      {type: 'element', tagName: 'li', children: []},
+      {type: 'element', tagName: 'menu', children: []}
     ]),
     'context',
     'should not walk higher than other elements'

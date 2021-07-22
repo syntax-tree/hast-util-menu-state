@@ -1,5 +1,6 @@
 /**
- * @typedef {import('unist').Node} Node
+ * @typedef {import('hast').Root} Root
+ * @typedef {Root['children'][number]|Root} Node
  *
  * @typedef {'context'|'toolbar'} MenuState
  */
@@ -30,17 +31,17 @@ export function menuState(nodes) {
   }
 
   while (node) {
-    // Stop at `template` elements and non-elements.
-    if (!isElement(node) || isElement(node, 'template')) {
-      break
-    }
-
     if (isElement(node, 'menu')) {
       type = node.properties && node.properties.type
 
       if (type === 'context' || type === 'toolbar') {
         return type
       }
+    }
+
+    // Stop at `template` elements and non-elements.
+    if (!isElement(node) || isElement(node, 'template')) {
+      break
     }
 
     node = nodes[--index]
