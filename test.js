@@ -2,12 +2,13 @@ import test from 'tape'
 import {menuState} from './index.js'
 
 test('menuState', (t) => {
-  // @ts-ignore runtime.
+  // @ts-expect-error runtime.
   t.equal(menuState(), null, 'should return `null` without nodes')
+  // @ts-expect-error runtime.
   t.equal(menuState(null), null, 'should return `null` with `null`')
   t.equal(menuState([]), null, 'should return `null` with empty `nodes`')
   t.equal(
-    // @ts-ignore runtime.
+    // @ts-expect-error runtime.
     menuState(['foo']),
     null,
     'should return `null` without `node` as last `node`'
@@ -103,6 +104,7 @@ test('menuState', (t) => {
         properties: {type: 'context'},
         children: []
       },
+      // @ts-expect-error runtime.
       null,
       {type: 'element', tagName: 'menu', children: []}
     ]),
