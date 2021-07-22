@@ -1,7 +1,7 @@
 import test from 'tape'
 import {menuState} from './index.js'
 
-test('menuState', function (t) {
+test('menuState', (t) => {
   // @ts-ignore runtime.
   t.equal(menuState(), null, 'should return `null` without nodes')
   t.equal(menuState(null), null, 'should return `null` with `null`')
