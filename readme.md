@@ -8,17 +8,54 @@
 [![Backers][backers-badge]][collective]
 [![Chat][chat-badge]][chat]
 
-[**hast**][hast] utility to get the [*state*][spec] of a `<menu>` [element][].
+[hast][] utility to get the [*state*][spec] of a `<menu>` element.
+
+## Contents
+
+*   [What is this?](#what-is-this)
+*   [When should I use this?](#when-should-i-use-this)
+*   [Install](#install)
+*   [Use](#use)
+*   [API](#api)
+    *   [`menuState(nodes)`](#menustatenodes)
+*   [Types](#types)
+*   [Compatibility](#compatibility)
+*   [Security](#security)
+*   [Related](#related)
+*   [Contribute](#contribute)
+*   [License](#license)
+
+## What is this?
+
+This package is a small utility that get the menu state of an element according
+to HTML.
+
+## When should I use this?
+
+This utility is super niche, if you’re here you probably know what you’re
+looking for!
 
 ## Install
 
-This package is [ESM only](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c):
-Node 12+ is needed to use it and it must be `import`ed instead of `require`d.
-
-[npm][]:
+This package is [ESM only][esm].
+In Node.js (version 12.20+, 14.14+, 16.0+, or 18.0+), install with [npm][]:
 
 ```sh
 npm install hast-util-menu-state
+```
+
+In Deno with [`esm.sh`][esmsh]:
+
+```js
+import {menuState} from 'https://esm.sh/hast-util-menu-state@2'
+```
+
+In browsers with [`esm.sh`][esmsh]:
+
+```html
+<script type="module">
+  import {menuState} from 'https://esm.sh/hast-util-menu-state@2?bundle'
+</script>
 ```
 
 ## Use
@@ -43,7 +80,7 @@ menuState([
 
 ## API
 
-This package exports the following identifiers: `menuState`.
+This package exports the identifier `menuState`.
 There is no default export.
 
 ### `menuState(nodes)`
@@ -57,15 +94,27 @@ or non-element, is found.
 
 ###### Parameters
 
-*   `nodes` ([`Array<Node>`][node], optional) — Nodes to check, where the
-    last `node` is a `<menu>` element.
-    The first node is its [*root*][root].
-    All nodes are therefore [*inclusive ancestors*][ancestor].
+*   `nodes` ([`Array<Node>`][node], optional) — nodes to check, where the
+    last `node` should be a `<menu>` element, the first node must be its
+    [*root*][root], and all nodes are therefore
+    [*inclusive ancestors*][ancestor]
 
 ###### Returns
 
-`string?` — either `'context'` or `'toolbar'` (the state the `menu` is in), or
-`null`, if the last node is not a `menu` element.
+Either `'context'` or `'toolbar'` (the state the `menu` is in), or `null` if
+the last node is not a `menu` element.
+
+## Types
+
+This package is fully typed with [TypeScript][].
+It exports the additional type `MenuState`.
+
+## Compatibility
+
+Projects maintained by the unified collective are compatible with all maintained
+versions of Node.js.
+As of now, that is Node.js 12.20+, 14.14+, 16.0+, and 18.0+.
+Our projects sometimes work with older versions, but this is not guaranteed.
 
 ## Security
 
@@ -79,8 +128,8 @@ for [cross-site scripting (XSS)][xss] attacks.
 
 ## Contribute
 
-See [`contributing.md` in `syntax-tree/.github`][contributing] for ways to get
-started.
+See [`contributing.md`][contributing] in [`syntax-tree/.github`][health] for
+ways to get started.
 See [`support.md`][support] for ways to get help.
 
 This project has a [code of conduct][coc].
@@ -121,15 +170,23 @@ abide by its terms.
 
 [npm]: https://docs.npmjs.com/cli/install
 
+[esm]: https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c
+
+[esmsh]: https://esm.sh
+
+[typescript]: https://www.typescriptlang.org
+
 [license]: license
 
 [author]: https://wooorm.com
 
-[contributing]: https://github.com/syntax-tree/.github/blob/HEAD/contributing.md
+[health]: https://github.com/syntax-tree/.github
 
-[support]: https://github.com/syntax-tree/.github/blob/HEAD/support.md
+[contributing]: https://github.com/syntax-tree/.github/blob/main/contributing.md
 
-[coc]: https://github.com/syntax-tree/.github/blob/HEAD/code-of-conduct.md
+[support]: https://github.com/syntax-tree/.github/blob/main/support.md
+
+[coc]: https://github.com/syntax-tree/.github/blob/main/code-of-conduct.md
 
 [spec]: https://html.spec.whatwg.org/#attr-menu-type
 
