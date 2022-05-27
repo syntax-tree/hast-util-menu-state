@@ -57,7 +57,7 @@ or non-element, is found.
 
 ###### Parameters
 
-*   `nodes` ([`Array.<Node>`][node], optional) — Nodes to check, where the
+*   `nodes` ([`Array<Node>`][node], optional) — Nodes to check, where the
     last `node` is a `<menu>` element.
     The first node is its [*root*][root].
     All nodes are therefore [*inclusive ancestors*][ancestor].

@@ -8,7 +8,7 @@
 import {isElement} from 'hast-util-is-element'
 
 /**
- * @param {Array.<Node>} nodes
+ * @param {Array<Node>} nodes
  * @returns {MenuState|null}
  */
 export function menuState(nodes) {
