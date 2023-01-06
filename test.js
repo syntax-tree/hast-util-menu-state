@@ -1,38 +1,39 @@
-import test from 'tape'
+import assert from 'node:assert/strict'
+import test from 'node:test'
 import {menuState} from './index.js'
 
-test('menuState', (t) => {
+test('menuState', () => {
   // @ts-expect-error runtime.
-  t.equal(menuState(), null, 'should return `null` without nodes')
+  assert.equal(menuState(), null, 'should return `null` without nodes')
   // @ts-expect-error runtime.
-  t.equal(menuState(null), null, 'should return `null` with `null`')
-  t.equal(menuState([]), null, 'should return `null` with empty `nodes`')
-  t.equal(
+  assert.equal(menuState(null), null, 'should return `null` with `null`')
+  assert.equal(menuState([]), null, 'should return `null` with empty `nodes`')
+  assert.equal(
     // @ts-expect-error runtime.
     menuState(['foo']),
     null,
     'should return `null` without `node` as last `node`'
   )
 
-  t.equal(
+  assert.equal(
     menuState([{type: 'text', value: 'alpha'}]),
     null,
     'should return `null` without `element` as last `node`'
   )
 
-  t.equal(
+  assert.equal(
     menuState([{type: 'element', tagName: 'div', children: []}]),
     null,
     'should return `null` without `menu` as last `node`'
   )
 
-  t.equal(
+  assert.equal(
     menuState([{type: 'element', tagName: 'menu', children: []}]),
     'toolbar',
     'should return `toolbar` without `type` on last `menu`'
   )
 
-  t.equal(
+  assert.equal(
     menuState([
       {
         type: 'element',
@@ -45,7 +46,7 @@ test('menuState', (t) => {
     'should return `toolbar` with `type` set to `toolbar` on last `menu`'
   )
 
-  t.equal(
+  assert.equal(
     menuState([
       {
         type: 'element',
@@ -58,7 +59,7 @@ test('menuState', (t) => {
     'should return `context` with `type` set to `context` on last `menu`'
   )
 
-  t.equal(
+  assert.equal(
     menuState([
       {
         type: 'element',
@@ -72,7 +73,7 @@ test('menuState', (t) => {
     'should return the `type` of a parent `menu`, if available'
   )
 
-  t.equal(
+  assert.equal(
     menuState([
       {type: 'element', tagName: 'menu', children: []},
       {type: 'element', tagName: 'menu', children: []}
@@ -81,7 +82,7 @@ test('menuState', (t) => {
     'should return the `toolbar` of no parent `menu` is available'
   )
 
-  t.equal(
+  assert.equal(
     menuState([
       {
         type: 'element',
@@ -96,7 +97,7 @@ test('menuState', (t) => {
     'should not walk higher than `template` elements'
   )
 
-  t.equal(
+  assert.equal(
     menuState([
       {
         type: 'element',
@@ -112,7 +113,7 @@ test('menuState', (t) => {
     'should not walk higher than non-elements'
   )
 
-  t.equal(
+  assert.equal(
     menuState([
       {
         type: 'element',
@@ -126,6 +127,4 @@ test('menuState', (t) => {
     'context',
     'should not walk higher than other elements'
   )
-
-  t.end()
 })
