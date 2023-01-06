@@ -18,6 +18,7 @@
 *   [Use](#use)
 *   [API](#api)
     *   [`menuState(nodes)`](#menustatenodes)
+    *   [`MenuState`](#menustate)
 *   [Types](#types)
 *   [Compatibility](#compatibility)
 *   [Security](#security)
@@ -27,8 +28,7 @@
 
 ## What is this?
 
-This package is a small utility that get the menu state of an element according
-to HTML.
+This package is a small utility that get the menu state according to HTML.
 
 ## When should I use this?
 
@@ -38,7 +38,7 @@ looking for!
 ## Install
 
 This package is [ESM only][esm].
-In Node.js (version 12.20+, 14.14+, 16.0+, or 18.0+), install with [npm][]:
+In Node.js (version 14.14+ and 16.0+), install with [npm][]:
 
 ```sh
 npm install hast-util-menu-state
@@ -80,40 +80,51 @@ menuState([
 
 ## API
 
-This package exports the identifier `menuState`.
+This package exports the identifier [`menuState`][menustate].
 There is no default export.
 
 ### `menuState(nodes)`
 
-Get the [*state*][spec] of a `<menu>` [element][].
+Get the [*state*][spec] of a `<menu>` element.
+
 The state is calculated from the lowest `<menu>` with a valid `type` property.
 If no `<menu>` has a `type`, it defaults to `'toolbar'`.
 
-The algorithm stops looking for higher `<menu>`s if a `template` element,
-or non-element, is found.
+The algorithm stops looking for higher `<menu>`s if a `template` element, or
+non-element, is found.
 
 ###### Parameters
 
-*   `nodes` ([`Array<Node>`][node], optional) — nodes to check, where the
-    last `node` should be a `<menu>` element, the first node must be its
-    [*root*][root], and all nodes are therefore
-    [*inclusive ancestors*][ancestor]
+*   `nodes` ([`Array<Node>`][node], optional)
+    — nodes to check, where the last node should be a `<menu>` element,
+    the first node must be its root, and all nodes are therefore inclusive
+    ancestors
 
 ###### Returns
 
-Either `'context'` or `'toolbar'` (the state the `menu` is in), or `null` if
-the last node is not a `menu` element.
+The state the `menu` is in ([`MenuState`][menustate-type]), or `null` if the
+last node is not a `menu` element.
+
+### `MenuState`
+
+The state a `menu` is in (TypeScript type).
+
+###### Type
+
+```ts
+type MenuState = 'context' | 'toolbar'
+```
 
 ## Types
 
 This package is fully typed with [TypeScript][].
-It exports the additional type `MenuState`.
+It exports the additional type [`MenuState`][menustate-type].
 
 ## Compatibility
 
 Projects maintained by the unified collective are compatible with all maintained
 versions of Node.js.
-As of now, that is Node.js 12.20+, 14.14+, 16.0+, and 18.0+.
+As of now, that is Node.js 14.14+ and 16.0+.
 Our projects sometimes work with older versions, but this is not guaranteed.
 
 ## Security
@@ -188,16 +199,14 @@ abide by its terms.
 
 [coc]: https://github.com/syntax-tree/.github/blob/main/code-of-conduct.md
 
-[spec]: https://html.spec.whatwg.org/#attr-menu-type
+[spec]: https://html.spec.whatwg.org/multipage/obsolete.html#attr-menu-type
 
 [node]: https://github.com/syntax-tree/unist#node
 
-[root]: https://github.com/syntax-tree/unist#root
-
-[ancestor]: https://github.com/syntax-tree/unist#ancestor
-
 [hast]: https://github.com/syntax-tree/hast
 
-[element]: https://github.com/syntax-tree/hast#element
-
 [xss]: https://en.wikipedia.org/wiki/Cross-site_scripting
+
+[menustate]: #menustatenodes
+
+[menustate-type]: #menustate
