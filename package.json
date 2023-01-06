@@ -1,6 +1,6 @@
 {
   "name": "hast-util-menu-state",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Legacy hast utility to get the state of a menu element — menu states were removed from HTML",
   "license": "MIT",
   "keywords": [],
