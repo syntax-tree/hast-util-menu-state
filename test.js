@@ -1,8 +1,15 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
 import {menuState} from './index.js'
+import * as mod from './index.js'
 
 test('menuState', () => {
+  assert.deepEqual(
+    Object.keys(mod).sort(),
+    ['menuState'],
+    'should expose the public api'
+  )
+
   // @ts-expect-error runtime.
   assert.equal(menuState(), null, 'should return `null` without nodes')
   // @ts-expect-error runtime.
