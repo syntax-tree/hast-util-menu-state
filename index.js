@@ -1,16 +1,35 @@
 /**
  * @typedef {import('hast').Root} Root
- * @typedef {Root['children'][number]|Root} Node
- *
- * @typedef {'context'|'toolbar'} MenuState
+ * @typedef {import('hast').Content} Content
+ */
+
+/**
+ * @typedef {Root | Content} Node
+ * @typedef {'context' | 'toolbar'} MenuState
+ *   The state a `menu` is in.
  */
 
 import {isElement} from 'hast-util-is-element'
 
 /**
+ * Get the *state* of a `<menu>` element.
+ *
+ * The state is calculated from the lowest `<menu>` with a valid `type`
+ * property.
+ * If no `<menu>` has a `type`, it defaults to `'toolbar'`.
+ *
+ * The algorithm stops looking for higher `<menu>`s if a `template` element, or
+ * non-element, is found.
+ *
  * @param {Array<Node>} nodes
- * @returns {MenuState|null}
+ *   nodes to check, where the last node should be a `<menu>` element, the
+ *   first node must be its root, and all nodes are therefore inclusive
+ *   ancestors
+ * @returns {MenuState | null}
+ *   The state the `menu` is in, or `null` if the last node is not a `menu`
+ *   element.
  */
+// To do next major: return `undefined`.
 export function menuState(nodes) {
   if (!Array.isArray(nodes) || nodes.length === 0) {
     return null
