@@ -1,18 +1,7 @@
 # hast-util-menu-state
 
-**Stability: Legacy**.
-This package is no longer recommended for use.
-Menu states are removed from the [HTML spec][spec]
+Deprecated: menu states were removed from the HTML spec.
 
-Legacy [documentation for this package](https://github.com/syntax-tree/hast-util-menu-state/tree/5b71e472e3bc4696ecda282f0900a486d95880d8)
-is still available in Git.
+[Git][] is still intact and previous versions can still be used without warnings.
 
-## License
-
-[MIT][license] © [Titus Wormer][author]
-
-[spec]: https://html.spec.whatwg.org/multipage/obsolete.html#attr-menu-type
-
-[license]: license
-
-[author]: https://wooorm.com
+[git]: https://github.com/syntax-tree/hast-util-menu-state/tree/6aa1cbcdf9dfae56c9b1d72b7654f8cff8040f5d
